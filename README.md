@@ -12,6 +12,12 @@ A client for the RIPEstat DATA API written in Go.
 require github.com/jtarasovic/go-ripestat/client
 ```
 
+alternatively,
+```bash
+go get -u github.com/jtarasovic/go-ripestat/client
+```
+
+
 
 ## Usage
 
@@ -33,12 +39,12 @@ import (
 )
 
 func main() {
-	c := NewClient()
-	r, err := c.ExampleResources()
-	if err != nil {
-        // handle error sanely
-		panic(err)
-	}
+    c := NewClient()
+    r, err := c.ExampleResources()
+    if err != nil {
+    // handle error sanely
+        panic(err)
+    }
     // result is map[string]interface{} currently
     // see API documentation for returned data
     fmt.Println(r["data"])
@@ -57,20 +63,20 @@ import (
 )
 
 func main() {
-	c := NewClient()
-        // helps RIPE identify callers. please include something unique for you application
-        .WithSourceApp("my-app")
+    c := NewClient()
+    // helps RIPE identify callers. please include something unique for you application
+    .WithSourceApp("my-app")
 
 
-	resource := "193/23"                    // prefix or IP range
-	starttime := "2019-01-01T00:00:00"      // ISO8601 or Unix timestamp
-	endtime := "2019-07-01T00:00:00"        // ISO8601 or Unix timestamp
+    resource := "193/23"                    // prefix or IP range
+    starttime := "2019-01-01T00:00:00"      // ISO8601 or Unix timestamp
+    endtime := "2019-07-01T00:00:00"        // ISO8601 or Unix timestamp
 
-	r, err := c.Blacklist(resource, starttime, endtime)
-	if err != nil {
+    r, err := c.Blacklist(resource, starttime, endtime)
+    if err != nil {
         // handle error sanely
-		panic(err)
-	}
+        panic(err)
+    }
     // result is map[string]interface{} currently
     // see API documentation for returned data
     fmt.Println(r["data"])
