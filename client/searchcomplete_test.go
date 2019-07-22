@@ -1,0 +1,18 @@
+package client
+
+import "fmt"
+
+func ExampleClient_SearchComplete() {
+	c := NewClient().WithSourceApp("go-ripestat")
+	resource := "RIPE" // term that should tried to be matched against resources
+	limit := ""
+	r, err := c.SearchComplete(resource, limit)
+	if err != nil {
+		panic(err)
+	}
+	data := r["data"].(map[string]interface{})
+	delete(data, "query_time")
+	fmt.Printf("%q", data)
+	// Output:
+	// map["categories":[map["category":"ASNs" "suggestions":[map["description":"RIPE-MEETING-AS, NL" "label":"AS2121" "value":"AS2121"] map["description":"RIPE-NCC-AS Reseaux IP Europeens Network Coordination Centre (RIPE NCC), NL" "label":"AS3333" "value":"AS3333"] map["description":"RIPE-NCC-RIS-AS Reseaux IP Europeens Network Coordination Centre (RIPE NCC), NL" "label":"AS12654" "value":"AS12654"] map["description":"RIPE, DE" "label":"AS12898" "value":"AS12898"] map["description":"RIPE-AT-AS, AT" "label":"AS34964" "value":"AS34964"] map["description":"RIPE-NCC-RIS-4BYTE-AS, NL" "label":"AS196615" "value":"AS196615"] map["description":"RIPE-NCC-AUTHDNS-AS Reseaux IP Europeens Network Coordination Centre (RIPE NCC), NL" "label":"AS197000" "value":"AS197000"] map["description":"RIPE-NCC-DR-AS, SE" "label":"AS201965" "value":"AS201965"]]] map["category":"Domains" "suggestions":[map["description":"riperam.org ranks #6325 on Alexa.com" "label":"riperam.org" "value":"riperam.org"] map["description":"ripe.net ranks #30289 on Alexa.com" "label":"ripe.net" "value":"ripe.net"] map["description":"ripemom.com ranks #148120 on Alexa.com" "label":"ripemom.com" "value":"ripemom.com"] map["description":"ripegoal.com ranks #329552 on Alexa.com" "label":"ripegoal.com" "value":"ripegoal.com"] map["description":"ripeinc.com ranks #389362 on Alexa.com" "label":"ripeinc.com" "value":"ripeinc.com"] map["description":"riper.am ranks #401003 on Alexa.com" "label":"riper.am" "value":"riper.am"] map["description":"ripetwats.com ranks #492938 on Alexa.com" "label":"ripetwats.com" "value":"ripetwats.com"] map["description":"ripenapps.com ranks #525763 on Alexa.com" "label":"ripenapps.com" "value":"ripenapps.com"] map["description":"ripe-life.com ranks #688146 on Alexa.com" "label":"ripe-life.com" "value":"ripe-life.com"] map["description":"ripetheband.com ranks #688147 on Alexa.com" "label":"ripetheband.com" "value":"ripetheband.com"] map["description":"ripeningrooms.com ranks #770290 on Alexa.com" "label":"ripeningrooms.com" "value":"ripeningrooms.com"] map["description":"ripedeli.co.nz ranks #781608 on Alexa.com" "label":"ripedeli.co.nz" "value":"ripedeli.co.nz"] map["description":"ripen.dk ranks #846782 on Alexa.com" "label":"ripen.dk" "value":"ripen.dk"] map["description":"ripegelato.com ranks #971751 on Alexa.com" "label":"ripegelato.com" "value":"ripegelato.com"] map["description":"ripemen.tumblr.com ranks #971752 on Alexa.com" "label":"ripemen.tumblr.com" "value":"ripemen.tumblr.com"] map["description":"ripen.com ranks #971753 on Alexa.com" "label":"ripen.com" "value":"ripen.com"]]] map["category":"Site Navigation" "suggestions":[map["description":"Go to RIPEstat Home" "label":"RIPEstat Home" "link":"/" "value":"RIPEstat Home"] map["description":"Go to About RIPEstat" "label":"About RIPEstat" "link":"/index/about-ripestat" "value":"About RIPEstat"]]] map["category":"Special" "suggestions":[map["description":"Go to the RIPE Atlas Measurement Targets widget" "label":"RIPE Atlas Measurement Targets" "link":"/widget/atlas-targets" "value":"Go to RIPE Atlas Measurement Targets"] map["description":"Go to the RIPE Atlas Probes widget" "label":"RIPE Atlas Probes" "link":"/widget/atlas-probes" "value":"Go to RIPE Atlas Probes"]]]] "limit":%!q(float64=50) "query_term":"RIPE"]
+}
