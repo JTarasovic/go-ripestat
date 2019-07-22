@@ -64,8 +64,8 @@ import (
 
 func main() {
     c := NewClient()
-    // helps RIPE identify callers. please include something unique for you application
-    .WithSourceApp("my-app")
+        // helps RIPE identify callers. please include something unique for you application
+        .WithSourceApp("my-app")
 
 
     resource := "193/23"                    // prefix or IP range
