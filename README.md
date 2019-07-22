@@ -2,6 +2,7 @@
 A client for the RIPEstat DATA API written in Go.
 
 [API Documentation](https://stat.ripe.net/docs/data_api)
+
 [Client Documentation](https://godoc.org/github.com/JTarasovic/go-ripestat/client)
 
 
