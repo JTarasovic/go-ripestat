@@ -17,7 +17,8 @@ func ExampleClient_AnnouncedPrefixes() {
 	data := r["data"].(map[string]interface{})
 	delete(data, "query_starttime")
 	delete(data, "query_endtime")
+	delete(data, "latest_time")
 	fmt.Printf("%q", data)
 	// Output:
-	// map["earliest_time":"2000-08-01T00:00:00" "latest_time":"2019-07-22T08:00:00" "prefixes":[] "resource":"64496"]
+	// map["earliest_time":"2000-08-01T00:00:00" "prefixes":[] "resource":"64496"]
 }

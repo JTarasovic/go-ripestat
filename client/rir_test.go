@@ -15,7 +15,8 @@ func ExampleClient_RIR() {
 	data := r["data"].(map[string]interface{})
 	delete(data, "query_starttime")
 	delete(data, "query_endtime")
+	delete(data, "latest")
 	fmt.Printf("%q", data)
 	// Output:
-	// map["latest":"2019-07-21T00:00:00" "lod":%!q(float64=1) "resource":"64496" "rirs":[]]
+	// map["lod":%!q(float64=1) "resource":"64496" "rirs":[]]
 }
