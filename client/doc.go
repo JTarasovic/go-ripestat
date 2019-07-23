@@ -1,2 +1,2 @@
-// A client for the full RIPEstat DATA API.
+// Package client represents the full RIPEstat DATA API.
 package client
