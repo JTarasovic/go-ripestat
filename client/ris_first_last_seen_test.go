@@ -1,7 +1,5 @@
 package client
 
-import "fmt"
-
 func ExampleClient_RISFirstLastSeen() {
 	c := NewClient().WithSourceApp("go-ripestat")
 	resource := "64496" // prefix or ASN
@@ -14,9 +12,11 @@ func ExampleClient_RISFirstLastSeen() {
 		panic(err)
 	}
 	data := r["data"].(map[string]interface{})
-	delete(data, "query_starttime")
-	delete(data, "query_endtime")
-	fmt.Printf("%q", data)
+	printMapKeysSorted(data)
 	// Output:
-	// map["include":[] "latest_time":"2019-07-22T08:00:00" "resource":["64496"] "resources":[map["first":map["time":"2018-05-17T16:00:00"] "last":map["time":"2019-07-22T08:00:00"] "resource":"64496" "type":"t"] map["first":map["time":"2010-09-23T00:00:00"] "last":map["time":"2019-03-21T00:00:00"] "resource":"64496" "type":"o"]] "stats":map["count":%!q(float64=2)]]
+	// include
+	// latest_time
+	// resource
+	// resources
+	// stats
 }
